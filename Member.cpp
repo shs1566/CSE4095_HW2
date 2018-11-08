@@ -16,6 +16,7 @@ Member::Member(const Member &m) {
 	update_phoneNumber(m.phoneNumber);
 	update_address(m.address);
 	update_mileage(m.mileage);
+	update_level(m.level);
 }
 
 Member& Member::operator = (const Member &m) {
@@ -26,7 +27,7 @@ Member& Member::operator = (const Member &m) {
 	update_phoneNumber(m.phoneNumber);
 	update_address(m.address);
 	update_mileage(m.mileage);
-
+	update_level(m.level);
 	return *this;
 }
 
@@ -66,6 +67,11 @@ istream & operator >> (istream &is, Member &m) {
 	getline(iss, token, '|');
 	m.update_mileage(token.data());
 
+	if (m.get_id() == "admin")
+		m.update_level(1);
+	else
+		m.update_level(9);
+
 	return is;
 }
 
@@ -78,6 +84,7 @@ ostream & operator << (ostream &os, Member &m) {
 	os << "PHONE NUMBER: " << m.phoneNumber << endl;
 	os << "ADDRESS: " << m.address << endl;
 	os << "MILEAGE: " << mileage << endl;
+	os << "LEVEL: " << m.level << endl;
 
 	return os;
 }
@@ -100,7 +107,8 @@ bool Member::Pack(IOBuffer &buffer) const {
 	if (numBytes == -1) return false;
 	numBytes = buffer.Pack(mileage.c_str());
 	if (numBytes == -1) return false;
-
+	numBytes = buffer.Pack(to_string(level).c_str());
+	if (numBytes == -1) return false;
 	return true;
 }
 
@@ -130,6 +138,10 @@ bool Member::Unpack(IOBuffer &buffer) {
 
 	numBytes = buffer.Unpack(mileage, LEN_MILEAGE);
 	if (numBytes == -1) return false;
+
+	numBytes = buffer.Unpack(buf);
+	if (numBytes == -1) return false;
+	level = atoi(buf);
 
 	return true;
 }	

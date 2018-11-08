@@ -15,7 +15,7 @@ private:
 	string phoneNumber;
 	string address;
 	char mileage[LEN_MILEAGE];
-
+	int level;
 public:
 	/* constructor */
 	Member();
@@ -38,6 +38,7 @@ public:
 	void update_phoneNumber(const string new_phoneNumber) { phoneNumber = new_phoneNumber; }
 	void update_address(const string new_address) { address = new_address; }
 	void update_mileage(const char new_mileage[LEN_MILEAGE]) { memcpy(mileage, new_mileage, LEN_MILEAGE); }
+	void update_level(const int new_level) { level = new_level; }
 
 	string get_id() { return id; }
 	string get_password() { return password; }
@@ -45,6 +46,8 @@ public:
 	string get_phoneNumber() { return phoneNumber; }
 	string get_address() { return address; }
 	char *get_mileage() { return mileage; }
+	int get_level() { return level; }
+
 	/* pack & unpack */
 	bool Pack(IOBuffer &buffer) const;
 	bool Unpack(IOBuffer &buffer);
