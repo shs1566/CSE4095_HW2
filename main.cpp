@@ -26,10 +26,19 @@ void printMenu();
 
 void lecturePurchaseSystem();
 bool check_password(string id, string password);
+
+/* for admin */
 void searchRecord();
 void insertRecord();
 void deleteRecord();
 void modifyRecord();
+
+/* for user */
+void modifyUserRecord(string id);
+void searchUserPurchase(string id);
+void insertUserPurchase(string id);
+void modifyUserPurchase(string id);
+void deleteUserPurchase(string id);
 
 int main(void) {
 	vector<Member> member_list;
@@ -141,14 +150,15 @@ void lecturePurchaseSystem() {
 			cout << "3. Purchase history" << endl;
 			cout << "4. Insert Purchase record" << endl;
 			cout << "5. Modify Purchase record" << endl;
-			cout << "6. Delete Purchase record" << endl << endl;
+			cout << "6. Delete Purchase record" << endl;
+			cout << "0. Back to menu" << endl << endl;
 
 			cin >> menu;
 			cout << endl;
 
 			switch(menu) {
 			case 1:
-				// TODO: modifyUserRecord();
+				modifyUserRecord(id);
 				break;
 			case 2:
 				// TODO: searchLecture();
