@@ -39,6 +39,7 @@ void searchUserPurchase(string id);
 void insertUserPurchase(string id);
 void modifyUserPurchase(string id);
 void deleteUserPurchase(string id);
+void searchLecture();
 
 int main(void) {
 	vector<Member> member_list;
@@ -115,66 +116,72 @@ void lecturePurchaseSystem() {
 			break;
 
 		if (id == "admin") {
-			int menu;
-			cout << "1. Search record" << endl;
-			cout << "2. Insert record" << endl;
-			cout << "3. Delete record" << endl;
-			cout << "4. Modify record" << endl;
-			cout << "0. Back to menu" << endl << endl;
-			cout << ">> ";
+			while (true) {
+				int menu;
+				cout << "1. Search record" << endl;
+				cout << "2. Insert record" << endl;
+				cout << "3. Delete record" << endl;
+				cout << "4. Modify record" << endl;
+				cout << "0. Back to menu" << endl << endl;
+				cout << ">> ";
 
-			cin >> menu;
-			cout << endl;
-			switch (menu) {
-			case 1:
-				searchRecord();
-				break;
-			case 2:
-				insertRecord();
-				break;
-			case 3:
-				deleteRecord();
-				break;
-			case 4:
-				modifyRecord();
-				break;
-			case 0:
-				return;
+				cin >> menu;
+				cout << endl;
+				switch (menu) {
+				case 1:
+					searchRecord();
+					break;
+				case 2:
+					insertRecord();
+					break;
+				case 3:
+					deleteRecord();
+					break;
+				case 4:
+					modifyRecord();
+					break;
+				case 0:
+					return;
+				}
 			}
 		}
 		
 		else {
-			int menu;
-			cout << "1. Modify member record" << endl;
-			cout << "2. Search lecture" << endl;
-			cout << "3. Purchase history" << endl;
-			cout << "4. Insert Purchase record" << endl;
-			cout << "5. Modify Purchase record" << endl;
-			cout << "6. Delete Purchase record" << endl;
-			cout << "0. Back to menu" << endl << endl;
+			while (true) {
+				int menu;
+				cout << "1. Modify member record" << endl;
+				cout << "2. Search lecture" << endl;
+				cout << "3. Purchase history" << endl;
+				cout << "4. Insert Purchase record" << endl;
+				cout << "5. Modify Purchase record" << endl;
+				cout << "6. Delete Purchase record" << endl;
+				cout << "0. Back to menu" << endl << endl;
+				cout << "Select menu: ";
+				cin >> menu;
+				cout << endl;
 
-			cin >> menu;
-			cout << endl;
-
-			switch(menu) {
-			case 1:
-				modifyUserRecord(id);
-				break;
-			case 2:
-				// TODO: searchLecture();
-				break;
-			case 3:
-				// TODO: searchUserPurchase();
-				break;
-			case 4:
-				// TODO: insertUserPurchase();
-				break;
-			case 5:
-				// TODO: modifyUserPurchase();
-				break;
-			case 6:
-				// TODO: deleteUserPurchase();
-				break;
+				switch (menu) {
+				case 1:
+					modifyUserRecord(id);
+					break;
+				case 2:
+					searchLecture();
+					break;
+				case 3:
+					searchUserPurchase(id);
+					break;
+				case 4:
+					insertUserPurchase(id);
+					break;
+				case 5:
+					modifyUserPurchase(id);
+					break;
+				case 6:
+					deleteUserPurchase(id);
+					break;
+				case 0:
+					return;
+				}
 			}
 		}
 	}	
