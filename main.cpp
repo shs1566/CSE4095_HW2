@@ -5,6 +5,7 @@
 #include <vector>
 #include <fstream>
 #include "recfile.h"
+#include "textind.h"
 #include <cstring>
 
 #define LEN_BUFFER 256

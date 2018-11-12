@@ -17,8 +17,9 @@ private:
 	int due_date;
 	string name_of_teacher;
 	string textbook;
-
+	string key;
 public:
+	char *Key();
 	/* constructor */
 	Lecture();
 	Lecture(const Lecture&);	// copy constructor

@@ -15,8 +15,10 @@ private:
 	char lecture_id[LEN_LECTURE_ID];
 	string member_id;
 	char mileage[LEN_MILEAGE];
+	string key;
 
 public:
+	char* Key();
 	/* constructor */
 	Purchase();
 	Purchase(const Purchase &p);	// copy constructor

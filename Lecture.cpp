@@ -3,6 +3,11 @@
 
 # define LEN_BUFFER 256
 
+char * Lecture::Key() {
+	key.assign(lecture_id, LEN_LECTURE_ID);
+	return (char *)(key.c_str());
+}
+
 Lecture::Lecture() { }
 
 Lecture::Lecture(const Lecture &l) {

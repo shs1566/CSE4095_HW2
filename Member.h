@@ -16,7 +16,11 @@ private:
 	string address;
 	char mileage[LEN_MILEAGE];
 	int level;
+	string key;
+
 public:
+	char *Key();
+
 	/* constructor */
 	Member();
 	Member(const string);

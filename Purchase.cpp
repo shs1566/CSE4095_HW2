@@ -3,6 +3,10 @@
 
 # define LEN_BUFFER 256
 
+char * Purchase::Key() {
+	key.assign(purchase_id, LEN_PURCHASE_ID);
+	return (char *)(key.c_str());
+}
 Purchase::Purchase() { }
 
 Purchase::Purchase(const Purchase &p) {

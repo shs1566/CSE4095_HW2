@@ -2,7 +2,11 @@
 #include <sstream>
 
 # define LEN_BUFFER 256
-
+#define LENID 12
+char* Member::Key() {
+	key.assign(id, LENID);
+	return (char*)key.c_str();
+}
 Member::Member() { }
 
 Member::Member(string new_id) {

@@ -9,7 +9,6 @@
 
 #define LEN_BUFFER 256
 
-using namespace std;
 
 void modifyUserRecord(string id) {
 	Member m, mRead;
